@@ -1,0 +1,32 @@
+Delivered-To: priya.sharma@examplecorp.in
+Received: by 10.20.30.41 with SMTP id abc999; Mon, 14 Sep 2026 09:02:10 -0700 (PDT)
+Received: from mail.examplecorp.in (mail.examplecorp.in. [192.0.2.10])
+    by mx.examplecorp.in with ESMTPS id ghi321;
+    Mon, 14 Sep 2026 09:02:08 -0700 (PDT)
+Authentication-Results: mx.examplecorp.in;
+    spf=pass smtp.mailfrom=examplecorp.in;
+    dkim=pass header.i=@examplecorp.in;
+    dmarc=pass (p=REJECT) header.from=examplecorp.in
+From: "Ananya Rao" <ananya.rao@examplecorp.in>
+Reply-To: ananya.rao@examplecorp.in
+To: priya.sharma@examplecorp.in
+Subject: Notes from today's design review
+Date: Mon, 14 Sep 2026 09:02:00 +0000
+Return-Path: <ananya.rao@examplecorp.in>
+Message-ID: <9911xyz-5678@examplecorp.in>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+
+Hi Priya,
+
+Thanks for joining the design review this morning. Sharing a quick
+summary of what we covered and the action items from the meeting.
+
+- Finalize the onboarding flow wireframes by Thursday
+- Loop in the backend team on the new API contract
+- Schedule a follow-up with the client next week
+
+Let me know if I missed anything.
+
+Best,
+Ananya

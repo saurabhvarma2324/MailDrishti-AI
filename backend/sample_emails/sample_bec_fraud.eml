@@ -1,0 +1,46 @@
+Delivered-To: priya.sharma@examplecorp.in
+Received: by 10.20.30.40 with SMTP id abc123; Mon, 14 Sep 2026 03:14:22 -0700 (PDT)
+Received: from mail-relay-9.suspicious-hosting.net (mail-relay-9.suspicious-hosting.net. [203.0.113.77])
+    by mx.examplecorp.in with ESMTPS id xyz789;
+    Mon, 14 Sep 2026 03:14:20 -0700 (PDT)
+Received: from [198.51.100.22] (unverified [198.51.100.22])
+    by mail-relay-9.suspicious-hosting.net with SMTP id def456;
+    Mon, 14 Sep 2026 10:14:05 +0000
+Authentication-Results: mx.examplecorp.in;
+    spf=fail smtp.mailfrom=examplecorp-finance.co;
+    dkim=fail header.i=@examplecorp-finance.co;
+    dmarc=fail (p=REJECT) header.from=examplecorp.in
+From: "CEO - Rajesh Kumar" <r.kumar@examplecorp-finance.co>
+Reply-To: rajesh.urgent.request@protonmail-secure.co
+To: priya.sharma@examplecorp.in
+Subject: URGENT: Immediate wire transfer required before end of day
+Date: Mon, 14 Sep 2026 10:14:00 +0000
+Return-Path: <bounce@examplecorp-finance.co>
+Message-ID: <8827abcd-1234@examplecorp-finance.co>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+
+Dear Valued Customer,
+
+This is Rajesh, your CEO. I am currently in a confidential acquisition
+meeting and cannot be reached by phone. I need you to process an
+urgent payment immediately.
+
+Please wire transfer the outstanding invoice amount to the beneficiary
+account below within the next 2 hours. This is time-sensitive and must
+be handled before the bank cutoff today. Failure to respond will delay
+the acquisition.
+
+Bank details:
+Beneficiary Account: 0091827364
+SWIFT Code: EXFRCOXXX
+
+Click here to verify the invoice attached and confirm the payment has
+been sent: http://bit.ly/inv0ice-verify-2026
+
+Do not discuss this with anyone else in the office until the deal is
+announced. Act now.
+
+Regards,
+Rajesh Kumar
+CEO, ExampleCorp

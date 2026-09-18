@@ -1,0 +1,23 @@
+# === Secrets — NEVER commit these ===
+.env
+**/.env
+
+# === Node (node-backend, frontend) ===
+node_modules/
+**/node_modules/
+frontend/dist/
+frontend/build/
+
+# === Python (backend) ===
+backend/venv/
+**/__pycache__/
+*.pyc
+
+# === Generated locally, not needed in the repo ===
+backend/ledger_data/
+backend/last_result.json
+
+# === OS / Editor ===
+.DS_Store
+Thumbs.db
+.vscode/settings.json

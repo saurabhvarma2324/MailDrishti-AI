@@ -1,0 +1,32 @@
+Delivered-To: priya.sharma@examplecorp.in
+Received: by 10.20.30.44 with SMTP id vwx666; Thu, 17 Sep 2026 06:00:12 -0700 (PDT)
+Received: from mail3.billing-statements-platform.net (mail3.billing-statements-platform.net. [192.0.2.55])
+    by mx.examplecorp.in with ESMTPS id yz1234;
+    Thu, 17 Sep 2026 06:00:08 -0700 (PDT)
+Authentication-Results: mx.examplecorp.in;
+    spf=pass smtp.mailfrom=billing-statements-platform.net;
+    dkim=pass header.i=@billing-statements-platform.net;
+    dmarc=fail (p=NONE) header.from=examplecorp-billing.net
+From: "ExampleCorp Billing" <statements@examplecorp-billing.net>
+Reply-To: statements@examplecorp-billing.net
+To: priya.sharma@examplecorp.in
+Subject: Your monthly account statement is ready
+Date: Thu, 17 Sep 2026 13:00:00 +0000
+Return-Path: <bounce@examplecorp-billing.net>
+Message-ID: <3391jkl-7890@billing-statements-platform.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+
+Hi Priya,
+
+Your monthly account statement for August 2026 is now available. You
+can view or download it using the link below.
+
+View statement: https://portal.billing-statements-platform.net/view/aug2026
+
+If you have any questions about your statement, you can reach our
+support team through the help center, or unsubscribe from these
+notifications here: https://portal.billing-statements-platform.net/unsubscribe
+
+Thanks,
+ExampleCorp Billing Team
