@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Clock, Shield, Link as LinkIcon, Lock, Activity, AlertCircle } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 const getTimelineIcon = (eventType) => {
   const type = eventType?.toLowerCase() || '';
   if (type.includes('threat')) return <Shield className="w-4 h-4 text-primary" />;
@@ -26,7 +28,7 @@ const GlobalTimeline = () => {
     try {
       setLoading(true);
       // 1. Fetch all cases
-      const resCases = await fetch('http://localhost:5000/api/cases', {
+      const resCases = await fetch(`${API_BASE_URL}/api/cases`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (!resCases.ok) throw new Error('Failed to fetch cases');
@@ -34,7 +36,7 @@ const GlobalTimeline = () => {
 
       // 2. Fetch details for each case to get timeline
       const fetchDetailsPromises = casesData.map(c => 
-        fetch(`http://localhost:5000/api/cases/${c._id}`, {
+        fetch(`${API_BASE_URL}/api/cases/${c._id}`, {
           headers: { 'Authorization': `Bearer ${token}` }
         }).then(res => res.json())
       );

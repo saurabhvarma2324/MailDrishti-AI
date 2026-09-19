@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { FileText, AlertCircle, Clock, Search, ExternalLink } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 const getPriorityColor = (priority) => {
   switch (priority) {
     case 'Critical': return 'text-danger bg-danger/10 border-danger/20';
@@ -36,7 +38,7 @@ const GlobalReports = () => {
   const fetchCases = async () => {
     try {
       setLoading(true);
-      const res = await fetch('http://localhost:5000/api/cases', {
+      const res = await fetch(`${API_BASE_URL}/api/cases`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (!res.ok) throw new Error('Failed to fetch cases');

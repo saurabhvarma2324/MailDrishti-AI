@@ -28,6 +28,8 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 const COLORS = [
   '#ef4444', // red for malware/phishing
   '#f59e0b', // orange
@@ -107,7 +109,7 @@ const Dashboard = () => {
   const fetchStats = async () => {
     try {
       setLoading(true);
-      const res = await fetch('http://localhost:5000/api/dashboard/stats', {
+      const res = await fetch(`${API_BASE_URL}/api/dashboard/stats`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (!res.ok) throw new Error('Failed to fetch dashboard stats');

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useAuth } from '../context/AuthContext';
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 import { 
   ShieldAlert, 
   Search, 
@@ -63,7 +65,7 @@ const IOCIntelligence = ({ caseId }) => {
   const fetchIocs = async () => {
     try {
       setLoading(true);
-      let url = 'http://localhost:5000/api/iocs';
+      let url = `${API_BASE_URL}/api/iocs`;
       if (caseId) url += `?caseId=${caseId}`;
       let res = await fetch(url, {
         headers: { 'Authorization': `Bearer ${token}` }
@@ -72,7 +74,7 @@ const IOCIntelligence = ({ caseId }) => {
       let data = [];
       if (res.status === 404) {
         // Fallback: derive IOCs from analysis history
-        const histRes = await fetch('http://localhost:5000/api/history', {
+        const histRes = await fetch(`${API_BASE_URL}/api/history`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (histRes.ok) {

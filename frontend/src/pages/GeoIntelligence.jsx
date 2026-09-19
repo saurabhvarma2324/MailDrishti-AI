@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 import { 
   Globe2,
   AlertCircle,
@@ -75,7 +77,7 @@ const GeoIntelligence = ({ caseId }) => {
   const fetchGeoData = async () => {
     try {
       setLoading(true);
-      let url = 'http://localhost:5000/api/geo';
+      let url = `${API_BASE_URL}/api/geo`;
       if (caseId) url += `?caseId=${caseId}`;
       let res = await fetch(url, {
         headers: { 'Authorization': `Bearer ${token}` }
@@ -84,7 +86,7 @@ const GeoIntelligence = ({ caseId }) => {
       let data = [];
       if (res.status === 404) {
         // Fallback: derive Geo Intelligence from analysis history
-        const histRes = await fetch('http://localhost:5000/api/history', {
+        const histRes = await fetch(`${API_BASE_URL}/api/history`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useAuth } from '../context/AuthContext';
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 import {
   ReactFlow,
   MiniMap,
@@ -112,7 +114,7 @@ const RelationshipGraph = ({ caseId }) => {
   const fetchGraphData = async () => {
     try {
       setLoading(true);
-      let url = 'http://localhost:5000/api/graph';
+      let url = `${API_BASE_URL}/api/graph`;
       if (caseId) url += `?caseId=${caseId}`;
       const res = await fetch(url, {
         headers: { 'Authorization': `Bearer ${token}` }

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 import { 
   ArrowLeft, 
   Clock, 
@@ -104,7 +106,7 @@ const CaseDetail = () => {
     try {
       setIsVerifying(true);
       setVerifyResult(null);
-      const res = await fetch('http://localhost:5000/api/ledger/verify', {
+      const res = await fetch(`${API_BASE_URL}/api/ledger/verify`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (!res.ok) throw new Error('Verification failed to execute');
@@ -120,7 +122,7 @@ const CaseDetail = () => {
   const fetchCaseDetails = async () => {
     try {
       setLoading(true);
-      const res = await fetch(`http://localhost:5000/api/cases/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/cases/${id}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (!res.ok) throw new Error('Failed to fetch case details');
@@ -136,7 +138,7 @@ const CaseDetail = () => {
   const handleStatusChange = async (e) => {
     const newStatus = e.target.value;
     try {
-      const res = await fetch(`http://localhost:5000/api/cases/${id}/status`, {
+      const res = await fetch(`${API_BASE_URL}/api/cases/${id}/status`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -157,7 +159,7 @@ const CaseDetail = () => {
     if (!newNote.trim()) return;
     setIsAddingNote(true);
     try {
-      const res = await fetch(`http://localhost:5000/api/cases/${id}/notes`, {
+      const res = await fetch(`${API_BASE_URL}/api/cases/${id}/notes`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -206,7 +208,7 @@ const CaseDetail = () => {
         formData.append('file', file);
         formData.append('caseId', id);
 
-        res = await fetch('http://localhost:5000/api/analyze', {
+        res = await fetch(`${API_BASE_URL}/api/analyze`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -216,7 +218,7 @@ const CaseDetail = () => {
       } else {
         if (!rawText.trim()) throw new Error("Please paste raw email content first.");
         
-        res = await fetch('http://localhost:5000/api/analyze-text', {
+        res = await fetch(`${API_BASE_URL}/api/analyze-text`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

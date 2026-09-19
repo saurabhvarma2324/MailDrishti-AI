@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Briefcase, Plus, Search, AlertCircle, X, ShieldAlert, AlertTriangle, CheckCircle2, Clock, Trash2 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 const getPriorityColor = (priority) => {
   switch (priority) {
     case 'Critical': return 'text-danger bg-danger/10 border-danger/20';
@@ -46,7 +48,7 @@ const Cases = () => {
   const fetchCases = async () => {
     try {
       setLoading(true);
-      const res = await fetch('http://localhost:5000/api/cases', {
+      const res = await fetch(`${API_BASE_URL}/api/cases`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (!res.ok) throw new Error('Failed to fetch cases');
@@ -63,7 +65,7 @@ const Cases = () => {
     e.preventDefault();
     try {
       setSubmitting(true);
-      const res = await fetch('http://localhost:5000/api/cases', {
+      const res = await fetch(`${API_BASE_URL}/api/cases`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -88,7 +90,7 @@ const Cases = () => {
     if (!caseToDelete) return;
     try {
       setIsDeleting(true);
-      const res = await fetch(`http://localhost:5000/api/cases/${caseToDelete._id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/cases/${caseToDelete._id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
